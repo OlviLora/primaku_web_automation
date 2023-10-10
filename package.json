@@ -1,0 +1,28 @@
+{
+  "name": "primaku_web_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-example": "tsc && cucumber-js --tags '@example' --require ./dist/stepDefinitions/** --require ./dist/scenarios/**/* --format ./dist/support/reporter.js:.dummy.txt",
+    "test-homepage": "tsc && cucumber-js --tags '@lihat_semua' --require ./dist/stepDefinitions/** --format ./dist/support/reporter.js:.dummy.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.6.0",
+    "@types/chai": "^4.3.7",
+    "@types/cucumber": "^7.0.0",
+    "@types/node": "^20.8.4",
+    "@types/selenium-webdriver": "^4.1.17",
+    "allure-cucumberjs": "^2.9.2",
+    "chai": "^4.3.10",
+    "cucumber": "^6.0.7",
+    "cucumber-pretty": "^6.0.1",
+    "cucumber-tsflow": "^4.1.1",
+    "selenium-webdriver": "^4.13.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
