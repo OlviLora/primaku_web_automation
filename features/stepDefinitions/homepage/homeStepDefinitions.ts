@@ -27,3 +27,15 @@ let homePage: HomePageObject;
   When('user see list of article', function () {
     return homePage.verifyListArticle();
   }); 
+
+  When('user see list of article in homepage', function () {
+    return homePage.verifyListArticleHome();
+  }); 
+
+  When('user see the title of first article', function () {
+    return homePage.getTextFirstArticle();
+  }); 
+
+  When('user verify the title article in home and article is equal', function () {
+    return homePage.verifyTitleArticle();
+  }); 

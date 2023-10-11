@@ -16,6 +16,14 @@ export class HomePageObject extends AbstractPageObject {
 
     private listArticle = By.xpath('//*[@id="app-layout"]/descendant::div[contains(@class, "flex gap-1")]');
 
+    private listArticleHome = By.className('flex gap-1');
+
+    private firstArticleHome = By.xpath('//*[@class="flex gap-1"]/child::div/div');
+
+    private firstArticle = By.xpath('//*[@id="app-layout"]/descendant::div[contains(@class, "flex gap-1")]/descendant::div/div');
+
+    private articleTitle = "";
+
     constructor() {
         super(driver);
     }
@@ -54,6 +62,24 @@ export class HomePageObject extends AbstractPageObject {
     verifyListArticle(){
         return this.driver.wait(until.elementLocated(this.listArticle)).then(() => {
             return this.driver.findElement(this.listArticle).isDisplayed();
+        });
+    }
+
+    verifyListArticleHome(){
+        return this.driver.findElement(this.listArticleHome).isDisplayed();
+    }
+
+    getTextFirstArticle(){
+        return this.driver.wait(until.elementLocated(this.firstArticleHome)).then(() => {
+            return this.driver.findElement(this.firstArticleHome).getText().then((text) => {
+                this.articleTitle = text;
+            });
+        });
+    }
+
+    verifyTitleArticle(){
+        return this.driver.findElement(this.firstArticle).getText().then((text) =>{
+            return assert.strictEqual(this.articleTitle, text);
         });
     }
 }
