@@ -42,14 +42,16 @@ export class HomePageObject extends AbstractPageObject {
     }
 
     dismissPopUpIfExist(){
-        return this.driver.wait(until.elementLocated(this.homePopUp)).then(() =>{
-            return this.driver.findElement(this.noButton).click();
+        return this.driver.wait(until.elementLocated(this.homePopUp)).then(() => {
+            return this.driver.findElement(this.homePopUp).isDisplayed().then(() => {
+                return this.driver.findElement(this.noButton).click();
+            });
         });
     }
 
     clickLihatSemua () {
         return this.driver.wait(until.elementLocated(this.linkLihatSemua)).then(() => {
-            return this.driver.wait(until.elementLocated(this.linkLihatSemua)).click();
+            return this.driver.findElement(this.linkLihatSemua).click();
         });
     }
 

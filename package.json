@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-example": "tsc && cucumber-js --tags '@example' --require ./dist/stepDefinitions/** --require ./dist/scenarios/**/* --format ./dist/support/reporter.js:.dummy.txt",
-    "test-homepage": "tsc && cucumber-js --tags '@lihat_semua' --require ./dist/stepDefinitions/** --format ./dist/support/reporter.js:.dummy.txt"
+    "test-example": "tsc && cucumber-js --tags '@example' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt",
+    "test-homepage": "tsc && cucumber-js --tags '@home' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt",
+    "test-article": "tsc && cucumber-js --tags '@article' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt"
   },
   "keywords": [],
   "author": "",
