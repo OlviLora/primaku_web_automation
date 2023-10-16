@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-primaku": "tsc && cucumber-js --tags '@primaku' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt --format html:reports/cucumber-report.html",
-    "test-homepage": "tsc && cucumber-js --tags '@home' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt --format html:reports/cucumber-report.html",
-    "test-article": "tsc && cucumber-js --tags '@article' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt --format html:reports/cucumber-report.html"
+    "test-primaku": "tsc && cucumber-js --tags '@primaku' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt",
+    "test-homepage": "tsc && cucumber-js --tags '@home' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt",
+    "test-article": "tsc && cucumber-js --tags '@article' --require ./dist/stepDefinitions/ --require ./dist/scenarios/ --format ./dist/support/reporter.js:.dummy.txt"
   },
   "keywords": [],
   "author": "",
