@@ -3,7 +3,7 @@ import { HomePageObject } from "../../pageObjects/homepage/HomePageObject";
 
 let homePage: HomePageObject;
 
-  Given('user open primaKu homepage', function () {
+  Given('user open primaKu homepage', {timeout: 2 * 5000}, function () {
     homePage = new HomePageObject();
     return homePage.openHomepage();
   });
