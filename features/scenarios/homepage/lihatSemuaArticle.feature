@@ -1,4 +1,4 @@
-@primaku @home @lihat_semua
+@home @lihat_semua
 Feature: Click Lihat Semua Article
 
   Scenario: User clicks lihat semua article

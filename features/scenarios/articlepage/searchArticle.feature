@@ -1,4 +1,4 @@
-@primaku @article @search_article
+@article @search_article
 Feature: Search Article
 
   Scenario: User search article and verify the article is displayed

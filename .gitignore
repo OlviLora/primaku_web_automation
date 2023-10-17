@@ -1,5 +1,3 @@
 node_modules
 allure-results
 dist
-reports
-.DS_Store
