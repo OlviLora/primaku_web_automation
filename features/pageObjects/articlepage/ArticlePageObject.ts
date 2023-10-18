@@ -14,6 +14,8 @@ export class ArticlePageObject extends AbstractPageObject {
 
     private popUp = By.xpath('//*[@id="desktopBannerWrapped"]');
 
+    private noButton = By.id('moe-dontallow_button');
+
     constructor() {
         super(driver);
     }
@@ -46,11 +48,15 @@ export class ArticlePageObject extends AbstractPageObject {
     }
 
     async dismissPopUpIfExist(){
-        await this.driver.wait(until.elementLocated(this.popUp)).then(async () => {
-            await this.driver.findElement(this.popUp).isDisplayed().then(() => {
-                return this.driver.findElement(this.popUp).click();
+        try{
+            await this.driver.findElement(this.popUp).isDisplayed().then(async() => {
+                await this.driver.findElement(this.noButton).then((element) => {
+                    return element.click();
+                });
             });
-        });
+        }catch{
+            return this.driver.findElement(this.articleMenu).isDisplayed();
+        }
     }
 
     async verifyArticleTitleIsDisplayed(title: string){

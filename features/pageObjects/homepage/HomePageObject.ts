@@ -42,11 +42,15 @@ export class HomePageObject extends AbstractPageObject {
     }
     
     async dismissPopUpIfExist(){
-        await this.driver.wait(until.elementLocated(this.homePopUp)).then(async () => {
-            await this.driver.findElement(this.homePopUp).isDisplayed().then(() => {
-                return this.driver.findElement(this.noButton).click();
+        try{
+            await this.driver.findElement(this.homePopUp).isDisplayed().then(async() => {
+                await this.driver.findElement(this.noButton).then((element) => {
+                    return element.click();
+                });
             });
-        });
+        }catch{
+            return this.driver.findElement(this.homeMenu).isDisplayed();
+        }
     }
 
     async clickLihatSemua () {
