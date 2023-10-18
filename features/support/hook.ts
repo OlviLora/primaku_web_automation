@@ -23,8 +23,8 @@ const capabilities = {
 };
 
 // Run Browser in Local
-/* BeforeAll(function () {
-    driver = new Builder()
+/* BeforeAll(async () => {
+    driver = await new Builder()
         .forBrowser('chrome')
         .setChromeOptions(
             new Options()
@@ -36,14 +36,14 @@ const capabilities = {
 }); */
 
 // Run Browser in LambdaTest
-BeforeAll(function () {
-    driver = new Builder()
+BeforeAll(async () => {
+    driver = await new Builder()
         .usingServer(gridUrl)
         .withCapabilities(capabilities)
         .build();
     return driver.manage().window().maximize();
 });
 
-AfterAll(function (){
+AfterAll(async function (){
     driver.quit();
 });

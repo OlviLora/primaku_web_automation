@@ -28,59 +28,61 @@ export class HomePageObject extends AbstractPageObject {
         super(driver);
     }
 
-    openHomepage() {
+    async openHomepage() {
         const pageUrl: string = "https://www.primaku.com/";
-        return this.driver.get(pageUrl).then(() => {
+        await this.driver.get(pageUrl).then(() => {
             return this.driver.wait(until.elementLocated(this.homeMenu));
         });
     }
 
-    verifyOnHomepage(){
-        return this.driver.wait(until.elementLocated(this.homeMenu)).then(() => {
+    async verifyOnHomepage(){
+        await this.driver.wait(until.elementLocated(this.homeMenu)).then(() => {
             return this.driver.findElement(this.homeMenu).isDisplayed();
         });
     }
-
-    dismissPopUpIfExist(){
-        return this.driver.wait(until.elementLocated(this.homePopUp)).then(() => {
-            return this.driver.findElement(this.homePopUp).isDisplayed().then(() => {
+    
+    async dismissPopUpIfExist(){
+        await this.driver.wait(until.elementLocated(this.homePopUp)).then(async () => {
+            await this.driver.findElement(this.homePopUp).isDisplayed().then(() => {
                 return this.driver.findElement(this.noButton).click();
             });
         });
     }
 
-    clickLihatSemua () {
-        return this.driver.wait(until.elementLocated(this.linkLihatSemua)).then(() => {
+    async clickLihatSemua () {
+        await this.driver.wait(until.elementLocated(this.linkLihatSemua)).then(() => {
             return this.driver.findElement(this.linkLihatSemua).click();
         });
     }
 
-    verifyInArticlePage(){
-        return this.driver.wait(until.elementLocated(this.articleMenu)).then(() => {
+    async verifyInArticlePage(){
+        await this.driver.wait(until.elementLocated(this.articleMenu)).then(() => {
             return this.driver.findElement(this.articleMenu).isDisplayed();
         });
     }
 
-    verifyListArticle(){
-        return this.driver.wait(until.elementLocated(this.listArticle)).then(() => {
+    async verifyListArticle(){
+        await this.driver.wait(until.elementLocated(this.listArticle)).then(() => {
             return this.driver.findElement(this.listArticle).isDisplayed();
         });
     }
 
-    verifyListArticleHome(){
-        return this.driver.findElement(this.listArticleHome).isDisplayed();
+    async verifyListArticleHome(){
+        await this.driver.findElement(this.listArticleHome).isDisplayed();
+        return this;
     }
 
-    getTextFirstArticle(){
-        return this.driver.wait(until.elementLocated(this.firstArticleHome)).then(() => {
-            return this.driver.findElement(this.firstArticleHome).getText().then((text) => {
+    async getTextFirstArticle(){
+        await this.driver.wait(until.elementLocated(this.firstArticleHome)).then(async() => {
+            await this.driver.findElement(this.firstArticleHome).getText().then(async(text) => {
                 this.articleTitle = text;
+                return this;
             });
         });
     }
 
-    verifyTitleArticle(){
-        return this.driver.findElement(this.firstArticle).getText().then((text) =>{
+    async verifyTitleArticle(){
+        await this.driver.findElement(this.firstArticle).getText().then((text) =>{
             return assert.strictEqual(this.articleTitle, text);
         });
     }
